@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitor & Juju • 3 anos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f0c;
+      --card: #121a16;
+      --accent: #ff6b9d;
+      --accent2: #c77dff;
+      --text: #f5e6f0;
+      --muted: #a8b8b0;
+      --barbie-pink: #ff85b3;
+      --hp-gold: #f0c75e;
+      --sw-blue: #4fc3f7;
+      --slytherin: #1a472a;
+      --slytherin-light: #2a623d;
+      --silver: #c0c0c0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ========== FUNDO TEMÁTICO ========== */
+    .space-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: 
+        radial-gradient(ellipse at 15% 25%, rgba(26, 71, 42, 0.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(255, 107, 157, 0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(199, 125, 255, 0.08) 0%, transparent 45%),
+        radial-gradient(ellipse at 40% 60%, rgba(42, 98, 61, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0f0c 0%, #0d1610 40%, #0a100c 100%);
+    }
+
+    /* Estrelas (Star Wars) */
+    .stars, .stars2, .stars3 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .stars {
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1.5px 1.5px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1.5px 1.5px at 160px 120px, #fff, transparent);
+      background-size: 200px 200px;
+      animation: twinkle 6s ease-in-out infinite;
+    }
+
+    .stars2 {
+      background-image: 
+        radial-gradient(1px 1px at 50px 50px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 100px 20px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 150px 90px, #fff, transparent),
+        radial-gradient(1px 1px at 180px 60px, rgba(255,255,255,0.5), transparent);
+      background-size: 250px 250px;
+      animation: twinkle 8s ease-in-out infinite 1s;
+      opacity: 0.7;
+    }
+
+    .stars3 {
+      background-image: 
+        radial-gradient(1.5px 1.5px at 30px 100px, #2a623d, transparent),
+        radial-gradient(1px 1px at 80px 150px, #c0c0c0, transparent),
+        radial-gradient(1px 1px at 140px 30px, #ff6b9d, transparent),
+        radial-gradient(1.5px 1.5px at 190px 170px, #f0c75e, transparent),
+        radial-gradient(1px 1px at 60px 40px, #4fc3f7, transparent);
+      background-size: 280px 280px;
+      animation: twinkle 10s ease-in-out infinite 2s;
+      opacity: 0.55;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* Partículas mágicas (Harry Potter) + glitter Barbie */
+    .magic-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 50%;
+      animation: floatMagic linear infinite;
+    }
+
+    @keyframes floatMagic {
+      0% {
+        transform: translateY(100vh) scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .names {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff6b9d, #c77dff, #4fc3f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 40px rgba(255, 107, 157, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .counter {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .counter-item {
+      background: rgba(255, 107, 157, 0.08);
+      border: 1px solid rgba(255, 107, 157, 0.25);
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      min-width: 100px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 20px rgba(255, 107, 157, 0.1);
+    }
+
+    .counter-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+    }
+
+    .counter-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--sw-blue));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.35rem;
+      top: 0.4rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--accent2);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-weight: 500;
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Letter */
+    .letter {
+      background: rgba(26, 18, 31, 0.85);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 107, 157, 0.2);
+      position: relative;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 40px rgba(255, 107, 157, 0.08);
+    }
+
+    .letter::before {
+      content: '“';
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: rgba(255, 107, 157, 0.15);
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+
+    .letter p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+
+    .letter-signature {
+      margin-top: 2rem;
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: rgba(26, 18, 31, 0.8);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 107, 157, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(8px);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255, 107, 157, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Interactive */
+    .interactive {
+      text-align: center;
+    }
+
+    .heart-btn {
+      background: linear-gradient(135deg, #ff6b9d, #c77dff);
+      border: none;
+      color: white;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 25px rgba(255, 107, 157, 0.35);
+      position: relative;
+      z-index: 2;
+    }
+
+    .heart-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 107, 157, 0.5);
+    }
+
+    .message-box {
+      margin-top: 2rem;
+      min-height: 80px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-family: 'Playfair Display', serif;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .message-box.show {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* Floating hearts on click */
+    .heart {
+      position: fixed;
+      font-size: 20px;
+      pointer-events: none;
+      animation: floatUp 4s ease-in forwards;
+      z-index: 100;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+
+    /* Easter Egg - Slytherin */
+    .easter-egg-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 12, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .easter-egg-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .easter-egg-content {
+      text-align: center;
+      max-width: 500px;
+      padding: 2.5rem;
+      border: 1px solid rgba(42, 98, 61, 0.5);
+      border-radius: 20px;
+      background: rgba(18, 26, 22, 0.95);
+      box-shadow: 0 0 60px rgba(42, 98, 61, 0.3);
+      transform: scale(0.9);
+      transition: transform 0.5s ease;
+    }
+
+    .easter-egg-overlay.show .easter-egg-content {
+      transform: scale(1);
+    }
+
+    .easter-egg-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #2a623d;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(42, 98, 61, 0.5);
+    }
+
+    .easter-egg-content p {
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .easter-egg-content .close-btn {
+      background: linear-gradient(135deg, #1a472a, #2a623d);
+      border: none;
+      color: #c0c0c0;
+      padding: 0.7rem 1.8rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .easter-egg-content .close-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(42, 98, 61, 0.4);
+    }
+
+    @media (max-width: 600px) {
+      .counter {
+        gap: 0.8rem;
+      }
+      .counter-item {
+        min-width: 80px;
+        padding: 1rem;
+      }
+      .counter-number {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fundo temático -->
+  <div class="space-bg"></div>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="names">Vitor & Juju</div>
+    <div class="subtitle">3 anos de nós</div>
+
+    <div class="counter" id="counter">
+      <div class="counter-item">
+        <span class="counter-number" id="days">0</span>
+        <span class="counter-label">Dias</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-number" id="hours">0</span>
+        <span class="counter-label">Horas</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-number" id="minutes">0</span>
+        <span class="counter-label">Minutos</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-number" id="seconds">0</span>
+        <span class="counter-label">Segundos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <h2>Nossa História</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">05 de Fevereiro de 2023</div>
+        <div class="timeline-title">O início de tudo</div>
+        <div class="timeline-desc">Tínhamos combinado de ir buscar sua prima. Era só para a gente se conhecer…
+Mas naquele momento, algo mudou.
+Ali, no meio de um plano simples, eu soube.
+Soube que não era só um encontro.
+Era o começo de tudo.
+O dia em que eu entendi que a gente ia ficar juntos… para sempre</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">02 de Outubro de 2023</div>
+        <div class="timeline-title">Primeiro encontro</div>
+        <div class="timeline-desc">Oficalmente namorando, foi nesse ponto que nossa historia começou a ser escrita</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">23 de dezembro de 2025</div>
+        <div class="timeline-title">Momento marcante</div>
+        <div class="timeline-desc">O dia no Ibirapuera
+Foi a primeira vez que você esteve lá.
+Passamos o dia inteiro juntos, só a gente.
+Desligamos a internet, esquecemos o mundo lá fora e deixamos o parque nos guiar.
+Caminhamos, conversamos, rimos…
+E no final, paramos para assistir a árvore de Natal acendendo.
+Naquele dia, o tempo desacelerou.
+E eu só queria que ele nunca acabasse.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">02 de Outubro de 2026</div>
+        <div class="timeline-title">3 anos juntos</div>
+        <div class="timeline-desc">E a história continua sendo escrita… May the Force be with us.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section>
+    <h2>Uma carta pra você</h2>
+    <div class="letter">
+      <p>
+        Juju,<br><br>
+        Três anos. Parece pouco e ao mesmo tempo parece uma vida inteira.<br><br>
+        Você é a força que equilibra meu lado da Força, a magia que transforma meus dias cinzas em algo extraordinário, e a Barbie que faz minha vida ficar bem mais colorida (e glamourosa).<br><br>
+        Obrigado por ser meu porto seguro, minha bagunça favorita e a pessoa com quem eu quero continuar errando e acertando.<br><br>
+        Que venham muitos outros “3 anos”. Eu te amo. Always.
+      </p>
+      <div class="letter-signature">— Vitor</div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section>
+    <h2>Nossos momentos</h2>
+    <div class="gallery">
+      <div class="gallery-item"><br><small><img src="./imagens/Imagem-001.jpg"></small></div>
+      <div class="gallery-item"><br><small><img src="./imagens/imagem-002.jpg"></small></div>
+      <div class="gallery-item"><br><small><img src="./imagens/imagem-003.jpg"></small></div>
+      <div class="gallery-item"><br><small><img src="./imagens/Imagem-004.jpg"></small></div>
+    </div>
+  </section>
+
+  <!-- INTERATIVO -->
+  <section class="interactive">
+    <h2>Clique aqui ❤️</h2>
+    <button class="heart-btn" onclick="showMessage()">Gerar mensagem de amor</button>
+    <div class="message-box" id="messageBox"></div>
+  </section>
+
+  <footer>
+    Feito com <span>♥</span> e um pouco de código<br>
+    Vitor & Juju • desde 02/10/2023<br>
+    <small style="opacity: 0.7; margin-top: 8px; display: block;">
+      achou que acabou??? HEHEHEHE Encontre o Aester egg na pagina
+    </small>
+  </footer>
+
+  <!-- Easter Egg Overlay -->
+  <div class="easter-egg-overlay" id="easterEgg">
+    <div class="easter-egg-content">
+      <h3>🐍 Sonserina descoberta</h3>
+      <p>
+        “Those capable of greatness… recognize greatness in others.”<br><br>
+        Você encontrou o easter egg da Sonserina.<br>
+        Assim como a casa mais ambiciosa de Hogwarts, o amor de vocês também é determinado, leal e um pouco misterioso.<br><br>
+        <em>Always.</em>
+      </p>
+      <button class="close-btn" onclick="closeEasterEgg()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    // Data de início do namoro
+    const startDate = new Date('2023-10-02T00:00:00');
+
+    function updateCounter() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    setInterval(updateCounter, 1000);
+    updateCounter();
+
+    // Mensagens temáticas
+    const messages = [
+      // Originais
+      "Você é o melhor commit da minha vida.",
+      "Se o amor fosse código, você seria meu main.",
+      "3 anos e ainda dá overflow de sentimentos.",
+      "Meu coração tem um bug: só funciona com você.",
+      "Você é minha feature favorita.",
+      "Eu te amo mais do que café e código juntos.",
+      "Nossa história é o melhor projeto que eu já fiz.",
+      "Continua sendo meu lugar favorito no mundo.",
+
+      // Star Wars
+      "Você é a Força que equilibra minha vida.",
+      "Juntos somos mais fortes que o Lado Sombrio.",
+      "pisca..",
+      "Eu te amo... e isso é um fato, não uma esperança.",
+      "Você é meu farol na galáxia.",
+      "May the Force (and our love) be with us.",
+
+      // Barbie
+      "Life in plastic is fantastic... mas com você é bem melhor.",
+      "Come on Barbie, let's go party... pra sempre.",
+      "Você me faz sentir que o mundo é todo rosa (do jeito bom).",
+      "Minha Barbie favorita. Sem competição.",
+
+      // Harry Potter
+      "Você é a magia que eu nunca soube que precisava.",
+      "I solemnly swear that I am up to no good... com você.",
+      "You're my always.",
+      "Mesmo se o mundo acabar, eu ainda escolheria você.",
+      "Mischief managed... mas o amor continua."
+    ];
+
+    function showMessage() {
+      const box = document.getElementById('messageBox');
+      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+      box.textContent = randomMsg;
+      box.classList.add('show');
+
+      // Corações + partículas temáticas
+      for (let i = 0; i < 10; i++) {
+        createHeart();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      // Mistura de emojis temáticos
+      const emojis = ['❤️', '💖', '✨', '🌟', '🪄', '💫'];
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.bottom = '0';
+      heart.style.fontSize = (Math.random() * 22 + 14) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    // Partículas mágicas contínuas no fundo (Harry Potter + Barbie glitter)
+    function createMagicParticle() {
+      const particle = document.createElement('div');
+      particle.classList.add('magic-particle');
+
+      const size = Math.random() * 4 + 2;
+      const colors = [
+        'rgba(255, 107, 157, 0.75)', // Barbie pink
+        'rgba(199, 125, 255, 0.65)', // Purple
+        'rgba(240, 199, 94, 0.75)',  // HP gold
+        'rgba(79, 195, 247, 0.65)',  // SW blue
+        'rgba(42, 98, 61, 0.85)',    // Slytherin green
+        'rgba(192, 192, 192, 0.8)',  // Silver
+        'rgba(255, 255, 255, 0.9)'   // White sparkle
+      ];
+
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.boxShadow = `0 0 ${size * 2}px ${particle.style.background}`;
+      particle.style.animationDuration = (Math.random() * 8 + 6) + 's';
+      particle.style.animationDelay = Math.random() * 2 + 's';
+
+      document.body.appendChild(particle);
+
+      setTimeout(() => particle.remove(), 12000);
+    }
+
+    // Criar partículas periodicamente
+    setInterval(createMagicParticle, 400);
+    // Criar algumas iniciais
+    for (let i = 0; i < 15; i++) {
+      setTimeout(createMagicParticle, i * 200);
+    }
+
+    // ========== EASTER EGG ==========
+    // Digite "sonserina" ou "slytherin" em qualquer lugar da página
+    let typedKeys = '';
+    const secretWords = ['sonserina', 'slytherin'];
+
+    document.addEventListener('keydown', (e) => {
+      // Ignora teclas de controle
+      if (e.key.length > 1) return;
+
+      typedKeys += e.key.toLowerCase();
+      
+      // Mantém só os últimos 12 caracteres
+      if (typedKeys.length > 12) {
+        typedKeys = typedKeys.slice(-12);
+      }
+
+      // Verifica se alguma palavra secreta foi digitada
+      for (const word of secretWords) {
+        if (typedKeys.includes(word)) {
+          showEasterEgg();
+          typedKeys = ''; // reseta
+          break;
+        }
+      }
+    });
+
+    function showEasterEgg() {
+      const overlay = document.getElementById('easterEgg');
+      overlay.classList.add('show');
+      
+      // Extra: solta várias partículas verdes e prateadas
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const particle = document.createElement('div');
+          particle.classList.add('magic-particle');
+          const size = Math.random() * 5 + 3;
+          const colors = ['rgba(42, 98, 61, 0.9)', 'rgba(192, 192, 192, 0.9)', 'rgba(26, 71, 42, 0.85)'];
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+          particle.style.left = Math.random() * 100 + 'vw';
+          particle.style.boxShadow = `0 0 ${size * 3}px ${particle.style.background}`;
+          particle.style.animationDuration = (Math.random() * 5 + 4) + 's';
+          document.body.appendChild(particle);
+          setTimeout(() => particle.remove(), 9000);
+        }, i * 40);
+      }
+    }
+    // Multi-toque no título (funciona bem no celular)
+    let tapCount = 0;
+    let tapTimer = null;
+
+    const namesEl = document.querySelector('.names');
+    if (namesEl) {
+      namesEl.addEventListener('click', () => {
+        tapCount++;
+
+        // Reseta a contagem se demorar mais de 1.2 segundos entre toques
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(() => {
+          tapCount = 0;
+        }, 1200);
+
+        // Ativa com 5 toques rápidos
+        if (tapCount >= 5) {
+          tapCount = 0;
+          showEasterEgg();
+        }
+      });
+    }
+
+    function showEasterEgg() {
+      const overlay = document.getElementById('easterEgg');
+      overlay.classList.add('show');
+      
+    }
+    function closeEasterEgg() {
+      document.getElementById('easterEgg').classList.remove('show');
+    }
+
+    // Também fecha com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeEasterEgg();
+    });
+  </script>
+</body>
+</html>
